@@ -6,12 +6,14 @@
     <meta name="description" content="우리의 결혼식에 초대합니다">
     <title>광수🐧 ❤️ 은지🦖 결혼합니다💍 </title>
     <link rel="stylesheet" href="styles.css">
+    <!-- 메인 이미지 프리로드 -->
+    <link rel="preload" href="images/main.jpeg" as="image" fetchpriority="high">
 </head>
 <body>
     <!-- 메인 헤더 -->
     <header class="main-header">
         <div class="main-photo">
-            <img src="images/main.jpeg" alt="메인 사진" onerror="this.style.display='none'">
+            <img src="images/main.jpeg" alt="메인 사진" fetchpriority="high" decoding="async" onerror="this.style.display='none'">
         </div>
         <div class="date-info">
             <p class="date-full">2026.06.06 토요일 오후 12시</p>
@@ -48,25 +50,25 @@
     <section class="gallery">
         <h2>우리의 순간들</h2>
         <div class="photo-grid">
-            <div class="photo-item"><img src="images/photo1.jpg" alt="사진 1" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo2.jpg" alt="사진 2" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo3.jpg" alt="사진 3" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo4.jpg" alt="사진 4" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo5.jpg" alt="사진 5" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo6.jpg" alt="사진 6" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo7.jpg" alt="사진 7" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo8.jpg" alt="사진 8" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo9.jpg" alt="사진 9" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo10.jpg" alt="사진 10" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo11.jpg" alt="사진 11" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo12.jpg" alt="사진 12" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo13.jpg" alt="사진 13" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo14.jpg" alt="사진 14" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo15.jpg" alt="사진 15" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo16.jpg" alt="사진 16" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo17.jpg" alt="사진 17" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo18.jpg" alt="사진 18" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
-            <div class="photo-item"><img src="images/photo19.jpg" alt="사진 19" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo1.jpg" alt="사진 1" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo2.jpg" alt="사진 2" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo3.jpg" alt="사진 3" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo4.jpg" alt="사진 4" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo5.jpg" alt="사진 5" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo6.jpg" alt="사진 6" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo7.jpg" alt="사진 7" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo8.jpg" alt="사진 8" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo9.jpg" alt="사진 9" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo10.jpg" alt="사진 10" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo11.jpg" alt="사진 11" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo12.jpg" alt="사진 12" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo13.jpg" alt="사진 13" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo14.jpg" alt="사진 14" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo15.jpg" alt="사진 15" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo16.jpg" alt="사진 16" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo17.jpg" alt="사진 17" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo18.jpg" alt="사진 18" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img data-src="images/photo19.jpg" alt="사진 19" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
         </div>
     </section>
 

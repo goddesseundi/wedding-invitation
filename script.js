@@ -2,7 +2,7 @@
 function toggleAccount(type) {
     const accountDetail = document.getElementById(`${type}-account`);
     const button = accountDetail.previousElementSibling;
-    
+
     if (accountDetail.style.display === 'none') {
         accountDetail.style.display = 'block';
         button.textContent = '계좌번호 숨기기 ▲';
@@ -11,6 +11,36 @@ function toggleAccount(type) {
         button.textContent = '계좌번호 보기 ▼';
     }
 }
+
+// 이미지 Lazy Loading (Intersection Observer)
+const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                observer.unobserve(img);
+            }
+        }
+    });
+}, {
+    rootMargin: '100px 0px', // 뷰포트 100px 전에 미리 로드
+    threshold: 0.01
+});
+
+// 페이지 로드시 lazy loading 초기화
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    lazyImages.forEach(img => {
+        lazyImageObserver.observe(img);
+    });
+});
+
+// 새로고침 시 맨 위로 스크롤
+window.onbeforeunload = function() {
+    window.scrollTo(0, 0);
+};
 
 // 계좌번호 복사
 function copyAccount(accountNumber) {
@@ -78,7 +108,7 @@ let currentImageIndex = 0;
 
 function initGallery() {
     const images = document.querySelectorAll('.photo-grid .photo-item img');
-    galleryImages = Array.from(images).map(img => img.src).filter(src => src);
+    galleryImages = Array.from(images).map(img => img.src || img.dataset.src).filter(src => src);
 }
 
 function openModal(src) {
