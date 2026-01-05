@@ -37,7 +37,7 @@
             <p>
                 6월 6일은 현충일이자<br>
                 신랑 양광수의 생일,<br>
-                그리고 두 사람이 부부가 되는 날입니다.<br>
+                그리고 두 사람이 부부가 되는 날입니다.<br><br>
                 의미 깊은 이 날,<br>
                 함께 자리해 축복해 주시면 감사하겠습니다.
             </p>
@@ -48,113 +48,76 @@
     <section class="gallery">
         <h2>우리의 순간들</h2>
         <div class="photo-grid">
-            <div class="photo-item">
-                <img src="images/photo1.jpg" alt="사진 1" onerror="this.src='https://via.placeholder.com/300x400?text=Photo+1'">
-            </div>
-            <div class="photo-item">
-                <img src="images/photo2.jpg" alt="사진 2" onerror="this.src='https://via.placeholder.com/300x400?text=Photo+2'">
-            </div>
-            <div class="photo-item">
-                <img src="images/photo3.jpg" alt="사진 3" onerror="this.src='https://via.placeholder.com/300x400?text=Photo+3'">
-            </div>
-            <div class="photo-item">
-                <img src="images/photo4.jpg" alt="사진 4" onerror="this.src='https://via.placeholder.com/300x400?text=Photo+4'">
-            </div>
+            <div class="photo-item"><img src="images/photo1.jpg" alt="사진 1" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo2.jpg" alt="사진 2" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo3.jpg" alt="사진 3" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo4.jpg" alt="사진 4" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo5.jpg" alt="사진 5" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo6.jpg" alt="사진 6" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo7.jpg" alt="사진 7" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo8.jpg" alt="사진 8" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo9.jpg" alt="사진 9" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo10.jpg" alt="사진 10" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo11.jpg" alt="사진 11" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo12.jpg" alt="사진 12" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo13.jpg" alt="사진 13" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo14.jpg" alt="사진 14" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo15.jpg" alt="사진 15" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo16.jpg" alt="사진 16" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo17.jpg" alt="사진 17" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo18.jpg" alt="사진 18" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
+            <div class="photo-item"><img src="images/photo19.jpg" alt="사진 19" loading="lazy" onerror="this.parentElement.style.display='none'" onclick="openModal(this.src)"></div>
         </div>
     </section>
+
+    <!-- 이미지 모달 -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <span class="modal-prev" onclick="changeImage(-1)">&#10094;</span>
+        <img class="modal-content" id="modalImage">
+        <span class="modal-next" onclick="changeImage(1)">&#10095;</span>
+    </div>
 
     <!-- 일정 및 장소 -->
     <section class="location">
         <h2>오시는 길</h2>
         <div class="venue-info">
-            <h3>웨딩홀 이름</h3>
-            <p class="address">서울특별시 000구 000로 000</p>
-            <p class="hall">0층 000홀</p>
-            <p class="tel">Tel. 02-0000-0000</p>
-        </div>
-        
-        <!-- 지도 -->
-        <div id="map" class="map-container">
-            <!-- 카카오맵 또는 네이버맵 API를 연결하세요 -->
-            <p style="text-align: center; padding: 60px 0; background: #f5f5f5;">
-                지도는 카카오맵 API를 연결해주세요
-            </p>
-        </div>
-        
-        <div class="map-buttons">
-            <button class="map-btn" onclick="openKakaoMap()">카카오맵</button>
-            <button class="map-btn" onclick="openNaverMap()">네이버지도</button>
-            <button class="map-btn" onclick="openTMap()">티맵</button>
+            <p class="address">경기도 성남시 분당구 정자동 178-1</p>
+            <p class="hall">네이버 그린팩토리 2층 커넥트홀</p>
         </div>
 
         <!-- 교통편 안내 -->
         <div class="transport">
             <h3>🚇 지하철</h3>
-            <p>0호선 000역 0번 출구 도보 5분</p>
+            <p>분당선 및 신분당선</p>
+            <p>정자역 3번출구에서 도보 15분</p>
             
             <h3>🚌 버스</h3>
-            <p>간선: 000, 000, 000</p>
-            <p>지선: 0000, 0000</p>
+            <p>정자역 3번 출구에서</p>
+            <p>마을버스 2, 2-1 탑승 후</p>
+            <p>네이버, 미켈란쉐르빌 정류장 하차</p>
             
             <h3>🚗 자가용</h3>
-            <p>건물 내 주차 가능 (2시간 무료)</p>
+            <p>건물 내 B2~B8 주차 가능</p>
+            <p>당일 무료 | 주차 등록 불필요</p>
+
+            <h3>🍀 참고사항</h3>
+            <p>그린팩토리는 초록색 건물입니다.</p>
+            <p>회색 건물(1784)과 혼선이 있을 수 있으니,</p>
+            <p>초록색 건물을 잘 찾아와주시면 감사하겠습니다.</p>
         </div>
     </section>
 
-    <!-- 연락하기 -->
-    <section class="contact">
-        <h2>연락하기</h2>
-        <div class="contact-group">
-            <div class="contact-person">
-                <h3>신랑측</h3>
-                <div class="contact-item">
-                    <span>신랑에게</span>
-                    <div class="contact-buttons">
-                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
-                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span>아버지</span>
-                    <div class="contact-buttons">
-                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
-                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span>어머니</span>
-                    <div class="contact-buttons">
-                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
-                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-person">
-                <h3>신부측</h3>
-                <div class="contact-item">
-                    <span>신부에게</span>
-                    <div class="contact-buttons">
-                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
-                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span>아버지</span>
-                    <div class="contact-buttons">
-                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
-                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span>어머니</span>
-                    <div class="contact-buttons">
-                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
-                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- 축하 화환 안내 -->
+    <section class="notice">
+        <h2>축하 화환 안내</h2>
+        <p>연회장에 화환 반입이 불가능하여,<br>축하 화환은 정중히 사양합니다.</p>
+    </section>
+
+    <!-- 연회장 오픈 시간 -->
+    <section class="notice notice-highlight">
+        <h2>연회장 오픈 시간</h2>
+        <p>하객 여러분의 편안한 식사를 위해<br>예식 한 시간 전인 11시부터 연회장이 오픈합니다.</p>
     </section>
 
     <!-- 마음 전하실 곳 -->
@@ -172,20 +135,10 @@
                         <p>은행명 000-0000-0000-00</p>
                         <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
                     </div>
-                    <div class="account-info">
-                        <p><strong>신랑 아버지</strong></p>
-                        <p>은행명 000-0000-0000-00</p>
-                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
-                    </div>
-                    <div class="account-info">
-                        <p><strong>신랑 어머니</strong></p>
-                        <p>은행명 000-0000-0000-00</p>
-                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
-                    </div>
                 </div>
             </div>
-            
-            <div class="account-item">
+
+            <div class="account-item account-bride">
                 <h3>신부측 계좌번호</h3>
                 <button class="account-toggle" onclick="toggleAccount('bride')">
                     계좌번호 보기 ▼
@@ -196,36 +149,15 @@
                         <p>은행명 000-0000-0000-00</p>
                         <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
                     </div>
-                    <div class="account-info">
-                        <p><strong>신부 아버지</strong></p>
-                        <p>은행명 000-0000-0000-00</p>
-                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
-                    </div>
-                    <div class="account-info">
-                        <p><strong>신부 어머니</strong></p>
-                        <p>은행명 000-0000-0000-00</p>
-                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 방명록 (선택사항) -->
-    <section class="guestbook">
-        <h2>축하 메시지</h2>
-        <p class="guestbook-notice">
-            축하의 마음을 전해주세요 💌
-        </p>
-        <!-- 구글 폼이나 다른 방명록 서비스를 연결할 수 있습니다 -->
-        <button class="guestbook-btn" onclick="openGuestbook()">
-            방명록 작성하기
-        </button>
-    </section>
-
     <!-- 푸터 -->
     <footer class="footer">
         <p>💕 Thank you 💕</p>
+        <p class="copyright">ⓒ EUNJI SHIN</p>
     </footer>
 
     <script src="script.js"></script>

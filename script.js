@@ -72,53 +72,70 @@ function openGuestbook() {
     window.open(guestbookUrl, '_blank');
 }
 
-// 갤러리 이미지 클릭 시 확대 (선택사항)
-document.addEventListener('DOMContentLoaded', function() {
-    const photoItems = document.querySelectorAll('.photo-item img');
-    
-    photoItems.forEach(img => {
-        img.addEventListener('click', function() {
-            // 이미지 모달 또는 확대 기능
-            const modal = createImageModal(this.src);
-            document.body.appendChild(modal);
-        });
-    });
+// 갤러리 이미지 모달
+let galleryImages = [];
+let currentImageIndex = 0;
+
+function initGallery() {
+    const images = document.querySelectorAll('.photo-grid .photo-item img');
+    galleryImages = Array.from(images).map(img => img.src).filter(src => src);
+}
+
+function openModal(src) {
+    if (galleryImages.length === 0) {
+        initGallery();
+    }
+    currentImageIndex = galleryImages.indexOf(src);
+    if (currentImageIndex === -1) currentImageIndex = 0;
+
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    modal.classList.add('active');
+    modalImg.src = src;
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function changeImage(direction) {
+    if (galleryImages.length === 0) return;
+
+    currentImageIndex += direction;
+
+    if (currentImageIndex >= galleryImages.length) {
+        currentImageIndex = 0;
+    } else if (currentImageIndex < 0) {
+        currentImageIndex = galleryImages.length - 1;
+    }
+
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = galleryImages[currentImageIndex];
+}
+
+// ESC 키로 모달 닫기, 좌우 화살표로 이미지 넘기기
+document.addEventListener('keydown', function(e) {
+    const modal = document.getElementById('imageModal');
+    if (!modal.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+        closeModal();
+    } else if (e.key === 'ArrowLeft') {
+        changeImage(-1);
+    } else if (e.key === 'ArrowRight') {
+        changeImage(1);
+    }
 });
 
-// 이미지 모달 생성
-function createImageModal(imageSrc) {
-    const modal = document.createElement('div');
-    modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.9);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        cursor: pointer;
-    `;
-    
-    const img = document.createElement('img');
-    img.src = imageSrc;
-    img.style.cssText = `
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
-    `;
-    
-    modal.appendChild(img);
-    
-    // 클릭시 모달 닫기
-    modal.addEventListener('click', function() {
-        document.body.removeChild(modal);
-    });
-    
-    return modal;
-}
+// 모달 배경 클릭시 닫기
+document.getElementById('imageModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
 
 // 스크롤 애니메이션 (선택사항)
 const observerOptions = {
