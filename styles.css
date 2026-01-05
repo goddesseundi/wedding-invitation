@@ -31,9 +31,41 @@ body {
 .main-photo img {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
-    max-height: 60vh;
+}
+
+.photo-overlay-left,
+.photo-overlay-right {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.photo-overlay-left {
+    left: 20px;
+    align-items: flex-start;
+}
+
+.photo-overlay-right {
+    right: 20px;
+    align-items: flex-end;
+}
+
+.photo-overlay-left .role,
+.photo-overlay-right .role {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.photo-overlay-left .overlay-name,
+.photo-overlay-right .overlay-name {
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .date-info {
@@ -501,26 +533,22 @@ body {
 
 /* 반응형 디자인 */
 @media (max-width: 480px) {
-    .main-photo img {
-        max-height: 50vh;
-    }
-    
     .date-info {
         padding: 30px 20px;
     }
-    
+
     .date-box .day {
         font-size: 42px;
     }
-    
+
     .greeting h2 {
         font-size: 20px;
     }
-    
+
     .message p {
         font-size: 15px;
     }
-    
+
     .photo-grid {
         grid-template-columns: 1fr;
         max-width: 400px;
@@ -528,9 +556,6 @@ body {
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-    .main-photo img {
-        max-height: 55vh;
-    }
 }
 
 @media (min-width: 600px) {
