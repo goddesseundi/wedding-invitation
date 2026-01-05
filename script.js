@@ -12,29 +12,13 @@ function toggleAccount(type) {
     }
 }
 
-// 이미지 Lazy Loading (Intersection Observer)
-const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                observer.unobserve(img);
-            }
-        }
-    });
-}, {
-    rootMargin: '100px 0px', // 뷰포트 100px 전에 미리 로드
-    threshold: 0.01
-});
+// 이미지 Lazy Loading (Intersection Observer) - 더 이상 필요 없음, 썸네일 사용
+// const lazyImageObserver = new IntersectionObserver(...)
 
-// 페이지 로드시 lazy loading 초기화
+// 페이지 로드시 초기화
 document.addEventListener('DOMContentLoaded', function() {
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    lazyImages.forEach(img => {
-        lazyImageObserver.observe(img);
-    });
+    // 갤러리 초기화
+    initGallery();
 });
 
 // 새로고침 시 맨 위로 스크롤
@@ -103,25 +87,34 @@ function openGuestbook() {
 }
 
 // 갤러리 이미지 모달
-let galleryImages = [];
+let galleryImages = []; // {thumb: '', full: ''} 형태로 저장
 let currentImageIndex = 0;
 
 function initGallery() {
     const images = document.querySelectorAll('.photo-grid .photo-item img');
-    galleryImages = Array.from(images).map(img => img.src || img.dataset.src).filter(src => src);
+    galleryImages = Array.from(images)
+        .filter(img => img.src || img.dataset.full)
+        .map(img => ({
+            thumb: img.src,
+            full: img.dataset.full || img.src
+        }));
 }
 
-function openModal(src) {
+function openModal(imgElement) {
     if (galleryImages.length === 0) {
         initGallery();
     }
-    currentImageIndex = galleryImages.indexOf(src);
+
+    const fullSrc = imgElement.dataset.full || imgElement.src;
+    currentImageIndex = galleryImages.findIndex(img => img.full === fullSrc);
     if (currentImageIndex === -1) currentImageIndex = 0;
 
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     modal.classList.add('active');
-    modalImg.src = src;
+
+    // 원본 이미지 로드
+    modalImg.src = galleryImages[currentImageIndex].full;
     document.body.style.overflow = 'hidden';
 }
 
@@ -143,7 +136,8 @@ function changeImage(direction) {
     }
 
     const modalImg = document.getElementById('modalImage');
-    modalImg.src = galleryImages[currentImageIndex];
+    // 원본 이미지 로드
+    modalImg.src = galleryImages[currentImageIndex].full;
 }
 
 // ESC 키로 모달 닫기, 좌우 화살표로 이미지 넘기기
