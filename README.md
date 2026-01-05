@@ -64,14 +64,14 @@ background: linear-gradient(135deg, #ffeef8 0%, #fff5f7 100%);
 color: #d4a5a5; /* 핑크톤 */
 ```
 
-## 🚀 GitHub Pages 배포 방법
+## 🚀 Netlify 배포 방법 (추천)
 
 ### 1단계: GitHub 저장소 생성
 
 1. GitHub에 로그인
 2. 우측 상단 `+` 버튼 → `New repository`
 3. Repository name: `wedding-invitation` (원하는 이름)
-4. `Public` 선택
+4. **`Private` 선택** (Private 저장소도 배포 가능!)
 5. `Create repository` 클릭
 
 ### 2단계: 코드 푸시
@@ -87,20 +87,63 @@ git branch -M main
 git push -u origin main
 ```
 
-### 3단계: GitHub Pages 활성화
+### 3단계: Netlify 배포
 
-1. GitHub 저장소 페이지에서 `Settings` 탭 클릭
-2. 왼쪽 메뉴에서 `Pages` 클릭
-3. **Source** 섹션:
-   - Branch: `main` 선택
-   - Folder: `/ (root)` 선택
-4. `Save` 클릭
+1. **[Netlify](https://www.netlify.com/) 접속**
+   - `Sign up` 클릭
+   - GitHub 계정으로 로그인
 
-### 4단계: 배포 완료
+2. **Import from Git**
+   - `Add new site` → `Import an existing project` 클릭
+   - `Deploy with GitHub` 선택
+   - `wedding-invitation` 저장소 선택
 
-- 약 1~2분 후 배포 완료
-- 접속 URL: `https://[사용자명].github.io/wedding-invitation/`
-- 이 URL을 공유하세요! 📤
+3. **배포 설정**
+   - Build command: 비워두기 (정적 사이트)
+   - Publish directory: 비워두기 (루트 디렉토리)
+   - `Deploy site` 클릭
+
+4. **배포 완료!**
+   - 약 30초~1분 후 배포 완료
+   - 자동 생성된 URL: `https://random-name-123456.netlify.app`
+   - 커스텀 도메인 설정 가능
+
+### 4단계: 도메인 이름 변경 (선택)
+
+1. Site settings → `Change site name`
+2. 원하는 이름으로 변경 (예: `우리의결혼식`)
+3. URL이 `https://우리의결혼식.netlify.app`으로 변경됨
+
+### ✨ Netlify 장점
+
+- ✅ **Private 저장소 지원** (무료!)
+- ✅ 자동 배포 (코드 푸시 시 자동 업데이트)
+- ✅ HTTPS 자동 적용
+- ✅ 빠른 CDN
+- ✅ 커스텀 도메인 연결 가능
+
+---
+
+## 🚀 Vercel 배포 방법 (대안)
+
+### 간단 배포
+
+1. **[Vercel](https://vercel.com/) 접속**
+   - GitHub 계정으로 로그인
+
+2. **Import Project**
+   - `Add New` → `Project` 클릭
+   - `wedding-invitation` 저장소 선택
+   - `Deploy` 클릭
+
+3. **배포 완료!**
+   - URL: `https://wedding-invitation.vercel.app`
+
+---
+
+### 배포 후 URL 공유
+
+배포가 완료되면 생성된 URL을 친구/가족들에게 공유하세요! 📤
 
 ## 📝 추가 기능 설정 (선택사항)
 
