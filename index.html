@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="우리의 결혼식에 초대합니다">
+    <title>결혼합니다 💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 메인 헤더 -->
+    <header class="main-header">
+        <h1>💐</h1>
+        <p class="date">2026년 00월 00일</p>
+        <p class="time">오후 0시 00분</p>
+    </header>
+
+    <!-- 인사말 -->
+    <section class="greeting">
+        <h2>소중한 분들을 초대합니다</h2>
+        <div class="names">
+            <div class="groom">
+                <p class="parents">000 · 000의 아들</p>
+                <p class="name">신랑 <strong>000</strong></p>
+            </div>
+            <div class="divider">♥</div>
+            <div class="bride">
+                <p class="parents">000 · 000의 딸</p>
+                <p class="name">신부 <strong>000</strong></p>
+            </div>
+        </div>
+        <div class="message">
+            <p>
+                평생을 함께하고 싶은 사람을 만났습니다.<br>
+                저희 두 사람이 사랑의 이름으로<br>
+                지켜나갈 첫 걸음에<br>
+                귀한 걸음 하시어 축복해 주시면<br>
+                더없는 기쁨으로 간직하겠습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- 갤러리 -->
+    <section class="gallery">
+        <h2>우리의 순간들</h2>
+        <div class="photo-grid">
+            <div class="photo-item">
+                <img src="images/photo1.jpg" alt="사진 1" onerror="this.src='https://via.placeholder.com/300x400?text=Photo+1'">
+            </div>
+            <div class="photo-item">
+                <img src="images/photo2.jpg" alt="사진 2" onerror="this.src='https://via.placeholder.com/300x400?text=Photo+2'">
+            </div>
+            <div class="photo-item">
+                <img src="images/photo3.jpg" alt="사진 3" onerror="this.src='https://via.placeholder.com/300x400?text=Photo+3'">
+            </div>
+            <div class="photo-item">
+                <img src="images/photo4.jpg" alt="사진 4" onerror="this.src='https://via.placeholder.com/300x400?text=Photo+4'">
+            </div>
+        </div>
+    </section>
+
+    <!-- 일정 및 장소 -->
+    <section class="location">
+        <h2>오시는 길</h2>
+        <div class="venue-info">
+            <h3>웨딩홀 이름</h3>
+            <p class="address">서울특별시 000구 000로 000</p>
+            <p class="hall">0층 000홀</p>
+            <p class="tel">Tel. 02-0000-0000</p>
+        </div>
+        
+        <!-- 지도 -->
+        <div id="map" class="map-container">
+            <!-- 카카오맵 또는 네이버맵 API를 연결하세요 -->
+            <p style="text-align: center; padding: 60px 0; background: #f5f5f5;">
+                지도는 카카오맵 API를 연결해주세요
+            </p>
+        </div>
+        
+        <div class="map-buttons">
+            <button class="map-btn" onclick="openKakaoMap()">카카오맵</button>
+            <button class="map-btn" onclick="openNaverMap()">네이버지도</button>
+            <button class="map-btn" onclick="openTMap()">티맵</button>
+        </div>
+
+        <!-- 교통편 안내 -->
+        <div class="transport">
+            <h3>🚇 지하철</h3>
+            <p>0호선 000역 0번 출구 도보 5분</p>
+            
+            <h3>🚌 버스</h3>
+            <p>간선: 000, 000, 000</p>
+            <p>지선: 0000, 0000</p>
+            
+            <h3>🚗 자가용</h3>
+            <p>건물 내 주차 가능 (2시간 무료)</p>
+        </div>
+    </section>
+
+    <!-- 연락하기 -->
+    <section class="contact">
+        <h2>연락하기</h2>
+        <div class="contact-group">
+            <div class="contact-person">
+                <h3>신랑측</h3>
+                <div class="contact-item">
+                    <span>신랑에게</span>
+                    <div class="contact-buttons">
+                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
+                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>아버지</span>
+                    <div class="contact-buttons">
+                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
+                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>어머니</span>
+                    <div class="contact-buttons">
+                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
+                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-person">
+                <h3>신부측</h3>
+                <div class="contact-item">
+                    <span>신부에게</span>
+                    <div class="contact-buttons">
+                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
+                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>아버지</span>
+                    <div class="contact-buttons">
+                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
+                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>어머니</span>
+                    <div class="contact-buttons">
+                        <a href="tel:010-0000-0000" class="contact-btn">📞</a>
+                        <a href="sms:010-0000-0000" class="contact-btn">💬</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 마음 전하실 곳 -->
+    <section class="account">
+        <h2>마음 전하실 곳</h2>
+        <div class="account-group">
+            <div class="account-item">
+                <h3>신랑측 계좌번호</h3>
+                <button class="account-toggle" onclick="toggleAccount('groom')">
+                    계좌번호 보기 ▼
+                </button>
+                <div id="groom-account" class="account-detail" style="display: none;">
+                    <div class="account-info">
+                        <p><strong>신랑</strong></p>
+                        <p>은행명 000-0000-0000-00</p>
+                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
+                    </div>
+                    <div class="account-info">
+                        <p><strong>신랑 아버지</strong></p>
+                        <p>은행명 000-0000-0000-00</p>
+                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
+                    </div>
+                    <div class="account-info">
+                        <p><strong>신랑 어머니</strong></p>
+                        <p>은행명 000-0000-0000-00</p>
+                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="account-item">
+                <h3>신부측 계좌번호</h3>
+                <button class="account-toggle" onclick="toggleAccount('bride')">
+                    계좌번호 보기 ▼
+                </button>
+                <div id="bride-account" class="account-detail" style="display: none;">
+                    <div class="account-info">
+                        <p><strong>신부</strong></p>
+                        <p>은행명 000-0000-0000-00</p>
+                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
+                    </div>
+                    <div class="account-info">
+                        <p><strong>신부 아버지</strong></p>
+                        <p>은행명 000-0000-0000-00</p>
+                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
+                    </div>
+                    <div class="account-info">
+                        <p><strong>신부 어머니</strong></p>
+                        <p>은행명 000-0000-0000-00</p>
+                        <button class="copy-btn" onclick="copyAccount('000-0000-0000-00')">복사</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 방명록 (선택사항) -->
+    <section class="guestbook">
+        <h2>축하 메시지</h2>
+        <p class="guestbook-notice">
+            축하의 마음을 전해주세요 💌
+        </p>
+        <!-- 구글 폼이나 다른 방명록 서비스를 연결할 수 있습니다 -->
+        <button class="guestbook-btn" onclick="openGuestbook()">
+            방명록 작성하기
+        </button>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <p>💕 Thank you 💕</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
