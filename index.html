@@ -124,15 +124,10 @@
             <p>초록색 건물을 잘 찾아와주시면 감사하겠습니다.</p>
         </div>
 
-        <!-- 카카오맵 -->
-        <div id="map" style="width:100%; height:300px; margin-top:20px; border-radius:10px;"></div>
-
-        <!-- 지도 앱 바로가기 -->
-        <div class="map-buttons">
-            <a href="https://map.kakao.com/link/map/네이버 그린팩토리,37.3595316,127.1052133" target="_blank" class="map-btn">카카오맵</a>
-            <a href="https://map.naver.com/v5/search/네이버 그린팩토리" target="_blank" class="map-btn">네이버지도</a>
-            <a href="https://tmap.life/9a06a37e" target="_blank" class="map-btn">티맵</a>
-        </div>
+        <!-- 네이버지도 -->
+        <a href="https://map.naver.com/v5/search/네이버 그린팩토리" target="_blank" style="display:block;">
+            <div id="map" style="width:100%; height:300px; margin-top:20px; border-radius:10px;"></div>
+        </a>
     </section>
 
     <!-- 연회장 오픈 시간 -->
@@ -188,33 +183,37 @@
     </footer>
 
     <script src="script.js"></script>
-    <!-- 카카오맵 API -->
+    <!-- 카카오맵 Static API -->
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1a7b036d284ea56cb02dc06d09f3162&autoload=false"></script>
     <script>
-        // 카카오맵 초기화 함수
-        function initKakaoMap() {
+        // 카카오 정적 지도 표시
+        document.addEventListener('DOMContentLoaded', function() {
             kakao.maps.load(function() {
                 var container = document.getElementById('map');
+                if (!container) return;
+
                 var options = {
-                    center: new kakao.maps.LatLng(37.3595316, 127.1052133), // 네이버 그린팩토리 좌표
-                    level: 3
+                    center: new kakao.maps.LatLng(37.3595316, 127.1052133),
+                    level: 3,
+                    draggable: false,
+                    scrollwheel: false,
+                    disableDoubleClickZoom: true
                 };
                 var map = new kakao.maps.Map(container, options);
 
                 // 마커 표시
-                var markerPosition = new kakao.maps.LatLng(37.3595316, 127.1052133);
                 var marker = new kakao.maps.Marker({
-                    position: markerPosition
+                    position: new kakao.maps.LatLng(37.3595316, 127.1052133)
                 });
                 marker.setMap(map);
 
                 // 인포윈도우
                 var infowindow = new kakao.maps.InfoWindow({
-                    content: '<div style="padding:5px;font-size:12px;">네이버 그린팩토리<br>2층 커넥트홀</div>'
+                    content: '<div style="padding:5px;font-size:12px;text-align:center;">네이버 그린팩토리<br>2층 커넥트홀</div>'
                 });
                 infowindow.open(map, marker);
             });
-        }
+        });
     </script>
-    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b96fcc4d592d6633ef366fce93db2ab1&autoload=false" onload="initKakaoMap()"></script>
 </body>
 </html>
