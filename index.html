@@ -192,7 +192,8 @@
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b96fcc4d592d6633ef366fce93db2ab1&autoload=false"></script>
     <script>
         // 카카오맵 초기화
-        kakao.maps.load(function() {
+        window.onload = function() {
+            kakao.maps.load(function() {
             var container = document.getElementById('map');
             var options = {
                 center: new kakao.maps.LatLng(37.3595316, 127.1052133), // 네이버 그린팩토리 좌표
@@ -212,7 +213,8 @@
                 content: '<div style="padding:5px;font-size:12px;">네이버 그린팩토리<br>2층 커넥트홀</div>'
             });
             infowindow.open(map, marker);
-        });
+            });
+        };
     </script>
 </body>
 </html>
