@@ -183,33 +183,27 @@
 
     <script src="script.js"></script>
     <!-- 카카오맵 API -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1a7b036d284ea56cb02dc06d09f3162"></script>
     <script>
-        function initKakaoMap() {
-            kakao.maps.load(function() {
-                var container = document.getElementById('map');
-                if (!container) return;
+        var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(37.3595316, 127.1052133),
+            level: 3,
+            draggable: false,
+            scrollwheel: false,
+            disableDoubleClickZoom: true
+        };
+        var map = new kakao.maps.Map(container, options);
 
-                var options = {
-                    center: new kakao.maps.LatLng(37.3595316, 127.1052133),
-                    level: 3,
-                    draggable: false,
-                    scrollwheel: false,
-                    disableDoubleClickZoom: true
-                };
-                var map = new kakao.maps.Map(container, options);
+        var marker = new kakao.maps.Marker({
+            position: new kakao.maps.LatLng(37.3595316, 127.1052133)
+        });
+        marker.setMap(map);
 
-                var marker = new kakao.maps.Marker({
-                    position: new kakao.maps.LatLng(37.3595316, 127.1052133)
-                });
-                marker.setMap(map);
-
-                var infowindow = new kakao.maps.InfoWindow({
-                    content: '<div style="padding:5px;font-size:12px;text-align:center;">네이버 그린팩토리<br>2층 커넥트홀</div>'
-                });
-                infowindow.open(map, marker);
-            });
-        }
+        var infowindow = new kakao.maps.InfoWindow({
+            content: '<div style="padding:5px;font-size:12px;text-align:center;">네이버 그린팩토리<br>2층 커넥트홀</div>'
+        });
+        infowindow.open(map, marker);
     </script>
-    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1a7b036d284ea56cb02dc06d09f3162&autoload=false" onload="initKakaoMap()" onerror="console.error('SDK 로드 에러')"></script>
 </body>
 </html>
