@@ -183,13 +183,8 @@
 
     <script src="script.js"></script>
     <!-- 카카오맵 API -->
-    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1a7b036d284ea56cb02dc06d09f3162&autoload=false"></script>
     <script>
-        (function() {
-            if (typeof kakao === 'undefined') {
-                console.error('카카오맵 SDK 로드 실패');
-                return;
-            }
+        function initKakaoMap() {
             kakao.maps.load(function() {
                 var container = document.getElementById('map');
                 if (!container) return;
@@ -213,7 +208,8 @@
                 });
                 infowindow.open(map, marker);
             });
-        })();
+        }
     </script>
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1a7b036d284ea56cb02dc06d09f3162&autoload=false" onload="initKakaoMap()" onerror="console.error('SDK 로드 에러')"></script>
 </body>
 </html>
