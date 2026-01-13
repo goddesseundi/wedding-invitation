@@ -189,32 +189,32 @@
 
     <script src="script.js"></script>
     <!-- 카카오맵 API -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b96fcc4d592d6633ef366fce93db2ab1&autoload=false"></script>
     <script>
-        // 카카오맵 초기화
-        window.onload = function() {
+        // 카카오맵 초기화 함수
+        function initKakaoMap() {
             kakao.maps.load(function() {
-            var container = document.getElementById('map');
-            var options = {
-                center: new kakao.maps.LatLng(37.3595316, 127.1052133), // 네이버 그린팩토리 좌표
-                level: 3
-            };
-            var map = new kakao.maps.Map(container, options);
+                var container = document.getElementById('map');
+                var options = {
+                    center: new kakao.maps.LatLng(37.3595316, 127.1052133), // 네이버 그린팩토리 좌표
+                    level: 3
+                };
+                var map = new kakao.maps.Map(container, options);
 
-            // 마커 표시
-            var markerPosition = new kakao.maps.LatLng(37.3595316, 127.1052133);
-            var marker = new kakao.maps.Marker({
-                position: markerPosition
-            });
-            marker.setMap(map);
+                // 마커 표시
+                var markerPosition = new kakao.maps.LatLng(37.3595316, 127.1052133);
+                var marker = new kakao.maps.Marker({
+                    position: markerPosition
+                });
+                marker.setMap(map);
 
-            // 인포윈도우
-            var infowindow = new kakao.maps.InfoWindow({
-                content: '<div style="padding:5px;font-size:12px;">네이버 그린팩토리<br>2층 커넥트홀</div>'
+                // 인포윈도우
+                var infowindow = new kakao.maps.InfoWindow({
+                    content: '<div style="padding:5px;font-size:12px;">네이버 그린팩토리<br>2층 커넥트홀</div>'
+                });
+                infowindow.open(map, marker);
             });
-            infowindow.open(map, marker);
-            });
-        };
+        }
     </script>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b96fcc4d592d6633ef366fce93db2ab1&autoload=false" onload="initKakaoMap()"></script>
 </body>
 </html>
