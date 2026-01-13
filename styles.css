@@ -296,6 +296,8 @@ body {
     font-weight: 400;
     color: #333;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
 }
 
 .map-btn:active {

@@ -123,6 +123,16 @@
             <p>회색 건물(1784)과 1,2층으로 연결되어 있습니다.</p>
             <p>초록색 건물을 잘 찾아와주시면 감사하겠습니다.</p>
         </div>
+
+        <!-- 카카오맵 -->
+        <div id="map" style="width:100%; height:300px; margin-top:20px; border-radius:10px;"></div>
+
+        <!-- 지도 앱 바로가기 -->
+        <div class="map-buttons">
+            <a href="https://map.kakao.com/link/map/네이버 그린팩토리,37.3595316,127.1052133" target="_blank" class="map-btn">카카오맵</a>
+            <a href="https://map.naver.com/v5/search/네이버 그린팩토리" target="_blank" class="map-btn">네이버지도</a>
+            <a href="https://tmap.life/9a06a37e" target="_blank" class="map-btn">티맵</a>
+        </div>
     </section>
 
     <!-- 연회장 오픈 시간 -->
@@ -178,5 +188,31 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- 카카오맵 API -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b96fcc4d592d6633ef366fce93db2ab1"></script>
+    <script>
+        // 카카오맵 초기화
+        window.addEventListener('load', function() {
+            var container = document.getElementById('map');
+            var options = {
+                center: new kakao.maps.LatLng(37.3595316, 127.1052133), // 네이버 그린팩토리 좌표
+                level: 3
+            };
+            var map = new kakao.maps.Map(container, options);
+
+            // 마커 표시
+            var markerPosition = new kakao.maps.LatLng(37.3595316, 127.1052133);
+            var marker = new kakao.maps.Marker({
+                position: markerPosition
+            });
+            marker.setMap(map);
+
+            // 인포윈도우
+            var infowindow = new kakao.maps.InfoWindow({
+                content: '<div style="padding:5px;font-size:12px;">네이버 그린팩토리<br>2층 커넥트홀</div>'
+            });
+            infowindow.open(map, marker);
+        });
+    </script>
 </body>
 </html>
