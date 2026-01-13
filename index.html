@@ -124,8 +124,8 @@
             <p>초록색 건물을 잘 찾아와주시면 감사하겠습니다.</p>
         </div>
 
-        <!-- 네이버지도 -->
-        <a href="https://map.naver.com/v5/search/네이버 그린팩토리" target="_blank" style="display:block;">
+        <!-- 카카오맵 -->
+        <a href="https://map.kakao.com/link/map/네이버 그린팩토리,37.3595316,127.1052133" target="_blank" style="display:block;">
             <div id="map" style="width:100%; height:300px; margin-top:20px; border-radius:10px;"></div>
         </a>
     </section>
@@ -183,11 +183,10 @@
     </footer>
 
     <script src="script.js"></script>
-    <!-- 카카오맵 Static API -->
-    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1a7b036d284ea56cb02dc06d09f3162&autoload=false"></script>
+    <!-- 카카오맵 API -->
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=a1a7b036d284ea56cb02dc06d09f3162&autoload=false" onload="initKakaoMap()"></script>
     <script>
-        // 카카오 정적 지도 표시
-        document.addEventListener('DOMContentLoaded', function() {
+        function initKakaoMap() {
             kakao.maps.load(function() {
                 var container = document.getElementById('map');
                 if (!container) return;
@@ -213,7 +212,7 @@
                 });
                 infowindow.open(map, marker);
             });
-        });
+        }
     </script>
 </body>
 </html>
