@@ -12,6 +12,23 @@ function toggleAccount(type) {
     }
 }
 
+// 우클릭 방지
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+// 드래그 방지
+document.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+});
+
+// 이미지 선택 방지
+document.addEventListener('selectstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
 // 이미지 Lazy Loading (Intersection Observer) - 더 이상 필요 없음, 썸네일 사용
 // const lazyImageObserver = new IntersectionObserver(...)
 
