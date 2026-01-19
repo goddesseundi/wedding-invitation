@@ -35,3 +35,6 @@ Temporary Items
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Audio files (protect from public access)
+bgm.mp3
