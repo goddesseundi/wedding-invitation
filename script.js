@@ -1,3 +1,41 @@
+// BGM 제어
+let bgmPlaying = false;
+const bgm = document.getElementById('bgm');
+const bgmToggle = document.getElementById('bgm-toggle');
+
+function toggleBGM() {
+    if (bgmPlaying) {
+        bgm.pause();
+        bgmToggle.classList.remove('playing');
+        bgmPlaying = false;
+    } else {
+        bgm.play().then(() => {
+            bgmToggle.classList.add('playing');
+            bgmPlaying = true;
+        }).catch(err => {
+            console.log('자동 재생 불가:', err);
+        });
+    }
+}
+
+// 첫 사용자 인터랙션 시 BGM 자동 재생 시도
+let firstInteraction = true;
+function tryAutoPlay() {
+    if (firstInteraction) {
+        firstInteraction = false;
+        bgm.play().then(() => {
+            bgmToggle.classList.add('playing');
+            bgmPlaying = true;
+        }).catch(() => {
+            // 자동 재생 실패 시 무시
+        });
+    }
+}
+
+document.addEventListener('click', tryAutoPlay, { once: true });
+document.addEventListener('touchstart', tryAutoPlay, { once: true });
+document.addEventListener('scroll', tryAutoPlay, { once: true });
+
 // 계좌번호 토글
 function toggleAccount(type) {
     const accountDetail = document.getElementById(`${type}-account`);

@@ -25,6 +25,18 @@
     <link rel="preload" href="images/main.jpeg" as="image" fetchpriority="high">
 </head>
 <body>
+    <!-- BGM 플레이어 -->
+    <audio id="bgm" loop preload="auto">
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
+    <button id="bgm-toggle" class="bgm-bar" onclick="toggleBGM()" aria-label="배경음악 켜기/끄기">
+        <span class="bgm-play-icon">▶</span>
+        <div class="bgm-marquee">
+            <span class="bgm-text">Chocolate Shower Magic - 손기현, MDR</span>
+        </div>
+        <span class="bgm-note">♪</span>
+    </button>
+
     <!-- 메인 헤더 -->
     <header class="main-header">
         <div class="main-photo">
@@ -173,6 +185,20 @@
     <section class="notice notice-highlight">
         <h2>축하 화환 안내</h2>
         <p>연회장에 화환 반입이 불가능하여,<br>축하 화환은 정중히 사양합니다.</p>
+    </section>
+
+    <!-- Special Thanks -->
+    <section class="special-thanks">
+        <h2>Special Thanks To</h2>
+        <div class="thanks-content">
+            <p>BGM 제공 - 작곡가&가수 <strong>박세진</strong></p>
+            <a href="https://www.youtube.com/@sejinn_nb" target="_blank" class="youtube-link" aria-label="세진 유튜브 채널">
+                <img src="youtube.png" alt="YouTube" class="youtube-icon">
+            </a>
+            <a href="https://www.tiktok.com/@sejinn_nx?is_from_webapp=1&sender_device=pc" target="_blank" class="tiktok-link" aria-label="세진 틱톡">
+                <img src="tik-tok.png" alt="TikTok" class="tiktok-icon">
+            </a>
+        </div>
     </section>
 
     <!-- 푸터 -->

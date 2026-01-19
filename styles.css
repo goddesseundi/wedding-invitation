@@ -5,6 +5,89 @@
     box-sizing: border-box;
 }
 
+/* BGM 바 */
+.bgm-bar {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 999;
+    height: 36px;
+    max-width: 200px;
+    padding: 0 14px 0 10px;
+    border: none;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bgm-bar:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bgm-bar:active {
+    transform: scale(0.98);
+}
+
+.bgm-bar .bgm-play-icon {
+    font-size: 12px;
+    color: #bbb;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.bgm-bar.playing .bgm-play-icon {
+    color: #e8a0a0;
+}
+
+.bgm-bar .bgm-note {
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.bgm-bar.playing .bgm-note {
+    color: #e8a0a0;
+}
+
+.bgm-marquee {
+    width: 140px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bgm-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    letter-spacing: 0;
+    padding-right: 50px;
+}
+
+/* 재생 중일 때 흘러가는 애니메이션 */
+.bgm-bar.playing .bgm-text {
+    animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% + 140px));
+    }
+}
+
 body {
     font-family: 'Apple Myungjo', 'Nanum Myeongjo', 'Batang', serif;
     line-height: 1.8;
@@ -586,6 +669,80 @@ body {
 
 .guestbook-btn:active {
     background: #d99090;
+}
+
+/* Special Thanks 섹션 */
+.special-thanks {
+    padding: 48px 24px;
+    text-align: center;
+    background: #fff;
+}
+
+.special-thanks h2 {
+    font-size: 17px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 28px;
+    letter-spacing: 2px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.special-thanks p {
+    font-size: 14px;
+    color: #555;
+    line-height: 2;
+}
+
+.special-thanks p strong {
+    font-size: 16px;
+}
+
+.thanks-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.youtube-link {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.youtube-link:hover {
+    transform: scale(1.1);
+}
+
+.youtube-link:active {
+    transform: scale(0.95);
+}
+
+.youtube-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.tiktok-link {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.tiktok-link:hover {
+    transform: scale(1.1);
+}
+
+.tiktok-link:active {
+    transform: scale(0.95);
+}
+
+.tiktok-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
 }
 
 /* 푸터 */
