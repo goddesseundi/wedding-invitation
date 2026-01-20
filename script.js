@@ -216,6 +216,34 @@ document.getElementById('imageModal').addEventListener('click', function(e) {
     }
 });
 
+// 모바일 스와이프 제스처 지원
+let touchStartX = 0;
+let touchEndX = 0;
+const swipeThreshold = 50; // 스와이프 인식 최소 거리
+
+document.getElementById('imageModal').addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+document.getElementById('imageModal').addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) < swipeThreshold) return;
+
+    if (swipeDistance > 0) {
+        // 오른쪽으로 스와이프 -> 이전 이미지
+        changeImage(-1);
+    } else {
+        // 왼쪽으로 스와이프 -> 다음 이미지
+        changeImage(1);
+    }
+}
+
 // 스크롤 애니메이션 (선택사항)
 const observerOptions = {
     threshold: 0.1,
