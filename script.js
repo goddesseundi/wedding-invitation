@@ -36,6 +36,15 @@ document.addEventListener('click', tryAutoPlay, { once: true });
 document.addEventListener('touchstart', tryAutoPlay, { once: true });
 document.addEventListener('scroll', tryAutoPlay, { once: true });
 
+// 페이지 비활성화 시 BGM 정지 (브라우저 탭 전환, 화면 전환 등)
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden && bgmPlaying) {
+        bgm.pause();
+        bgmToggle.classList.remove('playing');
+        bgmPlaying = false;
+    }
+});
+
 // 계좌번호 토글
 function toggleAccount(type) {
     const accountDetail = document.getElementById(`${type}-account`);
