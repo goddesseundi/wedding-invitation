@@ -619,17 +619,27 @@ body {
     color: #999;
 }
 
+.account-row.header-row span:nth-child(2) {
+    white-space: nowrap;
+}
+
 .account-row span {
     font-size: 13px;
     color: #333;
     flex: 1;
 }
 
-.account-row span:first-child {
-    flex: 0 0 90px;
+.account-row .account-name {
+    flex: 0 0 85px;
+    line-height: 1.4;
 }
 
-.account-row span:nth-child(2) {
+.account-row .account-name small {
+    font-size: 11px;
+    color: #888;
+}
+
+.account-row .account-num {
     flex: 1;
 }
 
